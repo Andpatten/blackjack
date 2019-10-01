@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.blackjack.model;
+package edu.cnm.deepdive.blackjack.model.entity;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
@@ -17,7 +17,7 @@ import java.util.Date;
         ),
         @ForeignKey(
             entity = Hand.class,
-            childColumns = "hand-id",
+            childColumns = "hand_id",
             parentColumns = "hand_id",
             onDelete = ForeignKey.CASCADE
         )
