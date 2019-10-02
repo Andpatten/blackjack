@@ -28,6 +28,7 @@ public class Shoe {
   @ColumnInfo(index = true)
   @NonNull
   private Date created = new Date();
+
   @ColumnInfo(name = "marker_id", index = true)
   private Long markerId;
 

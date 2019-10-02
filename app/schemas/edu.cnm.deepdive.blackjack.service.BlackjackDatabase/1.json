@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "290e7612d7ebf36a689fa8812cd5e26d",
+    "identityHash": "06f59561a86b057fd06719aa07ddf3f0",
     "entities": [
       {
         "tableName": "Card",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`card_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` INTEGER NOT NULL, `updated` INTEGER NOT NULL, `shoe_id` INTEGER, `hand_id` INTEGER, FOREIGN KEY(`shoe_id`) REFERENCES `Shoe`(`shoe_id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`hand_id`) REFERENCES `Hand`(`hand_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`card_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` INTEGER NOT NULL, `updated` INTEGER NOT NULL, `shoe_id` INTEGER, `hand_id` INTEGER, `rank` TEXT NOT NULL, `suit` TEXT NOT NULL, FOREIGN KEY(`shoe_id`) REFERENCES `Shoe`(`shoe_id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`hand_id`) REFERENCES `Hand`(`hand_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -37,6 +37,18 @@
             "columnName": "hand_id",
             "affinity": "INTEGER",
             "notNull": false
+          },
+          {
+            "fieldPath": "rank",
+            "columnName": "rank",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "suit",
+            "columnName": "suit",
+            "affinity": "TEXT",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -323,7 +335,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '290e7612d7ebf36a689fa8812cd5e26d')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '06f59561a86b057fd06719aa07ddf3f0')"
     ]
   }
 }
