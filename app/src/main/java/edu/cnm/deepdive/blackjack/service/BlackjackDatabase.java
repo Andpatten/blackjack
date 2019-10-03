@@ -17,9 +17,12 @@ import edu.cnm.deepdive.blackjack.model.entity.Round;
 import edu.cnm.deepdive.blackjack.model.entity.Shoe;
 import java.util.Date;
 
-@Database(entities = {Card.class, Hand.class, Round.class, Shoe.class}, version = 1, exportSchema = true)
+@Database(entities = {Card.class, Hand.class, Round.class,
+    Shoe.class}, version = 1, exportSchema = true)
 @TypeConverters(BlackjackDatabase.Converters.class)
 public abstract class BlackjackDatabase extends RoomDatabase {
+
+  protected BlackjackDatabase() {}
 
   private static Application applicationContext;
 
@@ -53,14 +56,14 @@ public abstract class BlackjackDatabase extends RoomDatabase {
     }
 
     @TypeConverter
-    public Date longToDate (Long milliseconds) {
+    public Date longToDate(Long milliseconds) {
       return (milliseconds != null) ? new Date(milliseconds) : null;
     }
 
     @TypeConverter
     public String enumToString(Enum value) {
 
-      return (value != null ) ? value.toString() : null;
+      return (value != null) ? value.toString() : null;
     }
 
     @TypeConverter
