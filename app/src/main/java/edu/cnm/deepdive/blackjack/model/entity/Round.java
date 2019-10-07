@@ -22,7 +22,9 @@ public class Round {
   @PrimaryKey(autoGenerate = true)
   @ColumnInfo(name = "round_id")
   private long id;
+
   @NonNull
+  @ColumnInfo(index = true)
   private Date created = new Date();
 
   @ColumnInfo(name = "shoe_id", index = true)
