@@ -109,6 +109,12 @@ public class Card {
     this.suit = suit;
   }
 
+  @NonNull
+  @Override
+  public String toString() {
+    return rank.getSymbol() + suit.getSymbol();
+  }
+
   public enum Rank {
 
     ACE,
